@@ -1,58 +1,42 @@
 var fs= require('fs');
-var log= require('nogger');
+var log= require('noogger');
 
 // var modelRE= /\!([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?<([a-zA-Z0-9]+)>([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?\!/g;
 var modelRE= /\!(.*?)<([a-zA-Z0-9]+)>(.*?)\!/g;
 var multiplyRE= /\!\!>multiply([^]+?)<\!\!/g;
 
-inFile='test.html';
-outFile= 'out.html';
-fs.readFile(inFile,'utf8',function (err, data) {
-    if(err) {console.log(err); return}
-    outputString= parse(data);
-    fs.writeFile(outFile,outputString, function (err) {
-        if(err) console.log("error: "+err);
-    })
-})
-
-
-
 var GET= {
     PREFIX: 1, KEY:2, SUFFIX: 3 
 }
 
-var models= [
-    { 
-        name:'user',
-        sname:'users',
-        fields: ['name','age', 'phone', 'email','address']
-    },
-    { 
-        name:'account',
-        sname:'account',
-        fields: ['date_openning','capacity', 'branch', 'owner','last_connected']
-    },
-    { 
-        name:'Vehicle',
-        sname:'Vehicle',
-        fields: ['brand','model', 'type', 'seats','number_plate']
-    }
-];
+function parseFile(file, models) {
+    
+    fs.readFile(file,'utf8',function (err, str) {
+        if(err) {console.log(err); return}
 
-function parse(str) {
-    var outputString = str;
-    var token;
+        var outputString = str;
+        var token;
+        while( token= multiplyRE.exec(str) ) {
+            var code= multiplyCode(token, models);
+            outputString= outputString.replace(token[0],code);        
+        }
+        return outputString;
+    });    
+}
 
-    //Phase 1: Multiply
-    while( token= multiplyRE.exec(str) ) {
-        var code= multiplyCode(token, models);
-        outputString= outputString.replace(token[0],code);        
-    }
-    //Phase 2: Models
+function multiplyFile(file, models, callb) {
+    fs.readFile(file,'utf8',function (err, str) {
+        if(err) {console.log(err); return}
 
-    console.log('finish');
-    console.log(token);
-    return outputString;
+        var code="";
+        models.forEach(function (model) {
+            code= applyModel(str, model);
+            if(callb)
+            callb(code, model);
+        });
+        // return code;
+
+    });
 }
 
 function applyModel(str, model) {
@@ -76,19 +60,6 @@ function multiplyCode(token, models) {
     return code;
     
 }
-function multiplyFile(token, models) {
-    var codeParts= token[1];
-    console.log(codeParts);
-    var code="";
-    models.forEach(function (model) {
-        code+= applyModel(codeParts,model);
-    });
-    console.log(code);
-    return code;
-    
-}
-
-
 
 function generateCode(token, model) {
     var keyword= token[GET.KEY];
@@ -121,6 +92,9 @@ function generateCode(token, model) {
             break;
     }
 }
+
+exports.parseFile=  parseFile;
+exports.multiplyFile= multiplyFile;
  
 /**
  Keywords:
