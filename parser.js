@@ -1,5 +1,9 @@
 var fs= require('fs');
-// var log= require('nogger');
+var log= require('nogger');
+
+// var modelRE= /\!([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?<([a-zA-Z0-9]+)>([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?\!/g;
+var modelRE= /\!(.*?)<([a-zA-Z0-9]+)>(.*?)\!/g;
+var multiplyRE= /\!\!>multiply([^]+?)<\!\!/g;
 
 inFile='test.html';
 outFile= 'out.html';
@@ -11,9 +15,6 @@ fs.readFile(inFile,'utf8',function (err, data) {
     })
 })
 
-// var modelRE= /\!([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?<([a-zA-Z0-9]+)>([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?\!/g;
-var modelRE= /\!(.*?)<([a-zA-Z0-9]+)>(.*?)\!/g;
-var multiplyRE= /\!\!>multiply([^]+?)<\!\!/g;
 
 
 var GET= {
