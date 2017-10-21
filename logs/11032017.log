@@ -1,0 +1,1515 @@
+11-03-2017 03:50:54.0 [INFO] <?php
+
+class   _Table_ {
+	
+	private $dbh;
+	
+	public function __construct($host,$username,$pass,$db,$port=3306)	{		
+		$this->dbh = new PDO("mysql:host=".$host.";port=".$port.";dbname=".$db,$username,$pass);				
+		$this->dbh->exec("SET CHARACTER SET utf8");
+	} 
+
+	public function readAll() {				
+		$sth = $this->dbh->prepare("SELECT * FROM _table_");
+		$sth->execute();
+		return json_encode($sth->fetchAll());
+	}
+	
+	public function readOne($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+	public function readm3($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+
+	public function create(_arg-list_) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute(array(_fields-values_));	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}	
+	/*
+	public function create($argArray) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute($argArray);	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}
+	*/
+	public function update($id,$field,$newValue) {		
+		$sth = $this->dbh->prepare("UPDATE _table_ SET ".$field."=? WHERE _primary-key_=?");
+		$sth->execute(array($newValue, $id));				
+		return json_encode(1);	
+	}
+	
+	public function delete($id) {				
+		$sth = $this->dbh->prepare("DELETE FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));
+		return json_encode(1);
+	}
+}
+?>
+11-03-2017 03:51:40.3 [INFO] <?php
+
+class   _Table_ {
+	
+	private $dbh;
+	
+	public function __construct($host,$username,$pass,$db,$port=3306)	{		
+		$this->dbh = new PDO("mysql:host=".$host.";port=".$port.";dbname=".$db,$username,$pass);				
+		$this->dbh->exec("SET CHARACTER SET utf8");
+	} 
+
+	public function readAll() {				
+		$sth = $this->dbh->prepare("SELECT * FROM _table_");
+		$sth->execute();
+		return json_encode($sth->fetchAll());
+	}
+	
+	public function readOne($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+	public function readm3($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+
+	public function create(_arg-list_) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute(array(_fields-values_));	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}	
+	/*
+	public function create($argArray) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute($argArray);	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}
+	*/
+	public function update($id,$field,$newValue) {		
+		$sth = $this->dbh->prepare("UPDATE _table_ SET ".$field."=? WHERE _primary-key_=?");
+		$sth->execute(array($newValue, $id));				
+		return json_encode(1);	
+	}
+	
+	public function delete($id) {				
+		$sth = $this->dbh->prepare("DELETE FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));
+		return json_encode(1);
+	}
+}
+?>
+11-03-2017 03:53:47.4 [INFO] <?php
+
+class   _Table_ {
+	
+	private $dbh;
+	
+	public function __construct($host,$username,$pass,$db,$port=3306)	{		
+		$this->dbh = new PDO("mysql:host=".$host.";port=".$port.";dbname=".$db,$username,$pass);				
+		$this->dbh->exec("SET CHARACTER SET utf8");
+	} 
+
+	public function readAll() {				
+		$sth = $this->dbh->prepare("SELECT * FROM _table_");
+		$sth->execute();
+		return json_encode($sth->fetchAll());
+	}
+	
+	public function readOne($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+	public function readm3($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+
+	public function create(_arg-list_) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute(array(_fields-values_));	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}	
+	/*
+	public function create($argArray) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute($argArray);	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}
+	*/
+	public function update($id,$field,$newValue) {		
+		$sth = $this->dbh->prepare("UPDATE _table_ SET ".$field."=? WHERE _primary-key_=?");
+		$sth->execute(array($newValue, $id));				
+		return json_encode(1);	
+	}
+	
+	public function delete($id) {				
+		$sth = $this->dbh->prepare("DELETE FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));
+		return json_encode(1);
+	}
+}
+?>
+11-03-2017 03:53:52.1 [ERROR] Error: ENOENT: no such file or directory, open 'C:\node\crudshow\tepl\template.php'
+11-03-2017 04:21:48.3 [INFO] <?php
+
+class   _Table_ {
+	
+	private $dbh;
+	
+	public function __construct($host,$username,$pass,$db,$port=3306)	{		
+		$this->dbh = new PDO("mysql:host=".$host.";port=".$port.";dbname=".$db,$username,$pass);				
+		$this->dbh->exec("SET CHARACTER SET utf8");
+	} 
+
+	public function readAll() {				
+		$sth = $this->dbh->prepare("SELECT * FROM _table_");
+		$sth->execute();
+		return json_encode($sth->fetchAll());
+	}
+	
+	public function readOne($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+	public function readm3($id) {
+		$sth = $this->dbh->prepare("SELECT * FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));		
+		return json_encode($sth->fetchAll());
+		
+	}
+
+	public function create(_arg-list_) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute(array(_fields-values_));	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}	
+	/*
+	public function create($argArray) {		
+		$sth = $this->dbh->prepare("INSERT INTO _table_ (_fields_) VALUES (_fields-placeholder_);");
+		$sth->execute($argArray);	
+		//$sth->execute(array($obj->dlRate, $obj->ulRate, $obj->time, $obj->cpe_id));		
+		return json_encode($this->dbh->lastInsertId());
+	}
+	*/
+	public function update($id,$field,$newValue) {		
+		$sth = $this->dbh->prepare("UPDATE _table_ SET ".$field."=? WHERE _primary-key_=?");
+		$sth->execute(array($newValue, $id));				
+		return json_encode(1);	
+	}
+	
+	public function delete($id) {				
+		$sth = $this->dbh->prepare("DELETE FROM _table_ WHERE _primary-key_=?");
+		$sth->execute(array($id));
+		return json_encode(1);
+	}
+}
+?>
+11-03-2017 04:22:25.0 [NOTICE] Success
+11-03-2017 04:22:41.9 [NOTICE] Success
+11-03-2017 04:36:03.9 [NOTICE] Success
+11-03-2017 04:36:20.6 [NOTICE] Success
+11-03-2017 04:37:12.3 [NOTICE] Success
+11-03-2017 04:37:23.5 [NOTICE] Success
+11-03-2017 04:37:41.0 [NOTICE] Success
+11-03-2017 04:38:10.6 [NOTICE] Success
+11-03-2017 04:38:43.5 [NOTICE] Success
+11-03-2017 04:39:01.7 [NOTICE] Success
+11-03-2017 04:41:47.2 [NOTICE] Success
+11-03-2017 04:41:47.2 [INFO] [object Object],[object Object]
+11-03-2017 04:42:04.8 [NOTICE] Success
+11-03-2017 04:42:04.8 [INFO] [object Object],[object Object]
+11-03-2017 04:42:31.6 [NOTICE] Success
+11-03-2017 04:42:31.6 [INFO] [{"catalog":"def","db":"information_schema","table":"TABLE_NAMES","orgTable":"TABLE_NAMES","name":"Tables_in_max_cpe","orgName":"TABLE_NAME","charsetNr":33,"length":219,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"TABLE_NAMES","orgTable":"TABLE_NAMES","name":"Table_type","orgName":"TABLE_TYPE","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 04:43:34.0 [NOTICE] Success
+11-03-2017 04:44:16.4 [NOTICE] Success
+11-03-2017 04:44:18.1 [NOTICE] Success
+11-03-2017 11:54:45.0 [NOTICE] Success
+11-03-2017 12:00:02.9 [NOTICE] Success
+11-03-2017 12:00:03.0 [INFO] contact
+11-03-2017 12:00:03.0 [INFO] cpe
+11-03-2017 12:00:03.0 [INFO] customer
+11-03-2017 12:00:03.0 [INFO] settings
+11-03-2017 12:00:03.0 [INFO] throughput
+11-03-2017 12:00:03.0 [INFO] user
+11-03-2017 12:20:19.3 [NOTICE] Success
+11-03-2017 12:21:06.6 [NOTICE] Success
+11-03-2017 12:21:06.6 [INFO] contact
+11-03-2017 12:21:06.6 [INFO] cpe
+11-03-2017 12:21:06.6 [INFO] customer
+11-03-2017 12:21:06.6 [INFO] settings
+11-03-2017 12:21:06.6 [INFO] throughput
+11-03-2017 12:21:06.6 [INFO] user
+11-03-2017 12:21:06.6 [NOTICE] undefined
+11-03-2017 12:21:06.6 [NOTICE] undefined
+11-03-2017 12:21:06.6 [NOTICE] undefined
+11-03-2017 12:21:06.6 [NOTICE] undefined
+11-03-2017 12:21:06.6 [NOTICE] undefined
+11-03-2017 12:21:06.6 [NOTICE] undefined
+11-03-2017 12:21:52.2 [NOTICE] Success
+11-03-2017 12:21:52.2 [INFO] contact
+11-03-2017 12:21:52.2 [INFO] cpe
+11-03-2017 12:21:52.2 [INFO] customer
+11-03-2017 12:21:52.2 [INFO] settings
+11-03-2017 12:21:52.2 [INFO] throughput
+11-03-2017 12:21:52.2 [INFO] user
+11-03-2017 12:21:52.2 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:21:52.2 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:21:52.2 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:21:52.2 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:21:52.2 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:21:52.2 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:24:32.7 [NOTICE] Success
+11-03-2017 12:24:32.7 [INFO] contact
+11-03-2017 12:24:32.7 [INFO] cpe
+11-03-2017 12:24:32.7 [INFO] customer
+11-03-2017 12:24:32.7 [INFO] settings
+11-03-2017 12:24:32.7 [INFO] throughput
+11-03-2017 12:24:32.7 [INFO] user
+11-03-2017 12:24:32.7 [ERROR] https://www.google.co.in/?q=Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:24:32.7 [ERROR] https://www.google.co.in/?q=Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:24:32.7 [ERROR] https://www.google.co.in/?q=Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:24:32.7 [ERROR] https://www.google.co.in/?q=Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:24:32.7 [ERROR] https://www.google.co.in/?q=Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:24:32.7 [ERROR] https://www.google.co.in/?q=Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:26:33.6 [NOTICE] Success
+11-03-2017 12:26:33.6 [INFO] contact
+11-03-2017 12:26:33.6 [INFO] cpe
+11-03-2017 12:26:33.6 [INFO] customer
+11-03-2017 12:26:33.6 [INFO] settings
+11-03-2017 12:26:33.6 [INFO] throughput
+11-03-2017 12:26:33.6 [INFO] user
+11-03-2017 12:26:33.6 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:26:33.6 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:26:33.6 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:26:33.6 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:26:33.6 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:26:33.6 [ERROR] Error: Cannot enqueue Query after invoking quit.
+11-03-2017 12:31:49.7 [NOTICE] Success
+11-03-2017 12:31:49.7 [INFO] contact
+11-03-2017 12:31:49.7 [INFO] cpe
+11-03-2017 12:31:49.7 [INFO] customer
+11-03-2017 12:31:49.7 [INFO] settings
+11-03-2017 12:31:49.7 [INFO] throughput
+11-03-2017 12:31:49.7 [INFO] user
+11-03-2017 12:31:49.7 [ERROR] Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"SHOW COLUMNS FROM cpe' at line 1
+11-03-2017 12:31:49.7 [ERROR] Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"SHOW COLUMNS FROM settings' at line 1
+11-03-2017 12:31:49.7 [ERROR] Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"SHOW COLUMNS FROM customer' at line 1
+11-03-2017 12:31:49.7 [ERROR] Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"SHOW COLUMNS FROM contact' at line 1
+11-03-2017 12:31:49.7 [ERROR] Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"SHOW COLUMNS FROM user' at line 1
+11-03-2017 12:31:49.7 [ERROR] Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"SHOW COLUMNS FROM throughput' at line 1
+11-03-2017 12:32:17.0 [NOTICE] Success
+11-03-2017 12:32:17.0 [INFO] contact
+11-03-2017 12:32:17.0 [INFO] cpe
+11-03-2017 12:32:17.0 [INFO] customer
+11-03-2017 12:32:17.0 [INFO] settings
+11-03-2017 12:32:17.0 [INFO] throughput
+11-03-2017 12:32:17.0 [INFO] user
+11-03-2017 12:32:17.0 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'max_cpe.throughput' doesn't exist in engine
+11-03-2017 12:32:17.0 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'max_cpe.customer' doesn't exist in engine
+11-03-2017 12:32:17.0 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'max_cpe.settings' doesn't exist in engine
+11-03-2017 12:32:17.0 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'max_cpe.user' doesn't exist in engine
+11-03-2017 12:32:17.1 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'max_cpe.contact' doesn't exist in engine
+11-03-2017 12:32:17.1 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'max_cpe.cpe' doesn't exist in engine
+11-03-2017 12:33:13.1 [NOTICE] Success
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [INFO] undefined
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:33:13.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.7 [NOTICE] Success
+11-03-2017 12:34:20.8 [INFO] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [INFO] undefined
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:20.8 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [NOTICE] Success
+11-03-2017 12:34:39.4 [INFO] [{"Tables_in_frro":"address","Table_type":"BASE TABLE"},{"Tables_in_frro":"application","Table_type":"BASE TABLE"},{"Tables_in_frro":"arrival","Table_type":"BASE TABLE"},{"Tables_in_frro":"companion","Table_type":"BASE TABLE"},{"Tables_in_frro":"company","Table_type":"BASE TABLE"},{"Tables_in_frro":"document","Table_type":"BASE TABLE"},{"Tables_in_frro":"emergency_contact","Table_type":"BASE TABLE"},{"Tables_in_frro":"file","Table_type":"BASE TABLE"},{"Tables_in_frro":"passport","Table_type":"BASE TABLE"},{"Tables_in_frro":"personal_details","Table_type":"BASE TABLE"},{"Tables_in_frro":"registration","Table_type":"BASE TABLE"}]
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [INFO] undefined
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:39.4 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.2 [NOTICE] Success
+11-03-2017 12:34:42.2 [INFO] [{"Tables_in_frro":"address","Table_type":"BASE TABLE"},{"Tables_in_frro":"application","Table_type":"BASE TABLE"},{"Tables_in_frro":"arrival","Table_type":"BASE TABLE"},{"Tables_in_frro":"companion","Table_type":"BASE TABLE"},{"Tables_in_frro":"company","Table_type":"BASE TABLE"},{"Tables_in_frro":"document","Table_type":"BASE TABLE"},{"Tables_in_frro":"emergency_contact","Table_type":"BASE TABLE"},{"Tables_in_frro":"file","Table_type":"BASE TABLE"},{"Tables_in_frro":"passport","Table_type":"BASE TABLE"},{"Tables_in_frro":"personal_details","Table_type":"BASE TABLE"},{"Tables_in_frro":"registration","Table_type":"BASE TABLE"}]
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [INFO] undefined
+11-03-2017 12:34:42.2 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:42.3 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.0 [NOTICE] Success
+11-03-2017 12:34:43.0 [INFO] [{"Tables_in_frro":"address","Table_type":"BASE TABLE"},{"Tables_in_frro":"application","Table_type":"BASE TABLE"},{"Tables_in_frro":"arrival","Table_type":"BASE TABLE"},{"Tables_in_frro":"companion","Table_type":"BASE TABLE"},{"Tables_in_frro":"company","Table_type":"BASE TABLE"},{"Tables_in_frro":"document","Table_type":"BASE TABLE"},{"Tables_in_frro":"emergency_contact","Table_type":"BASE TABLE"},{"Tables_in_frro":"file","Table_type":"BASE TABLE"},{"Tables_in_frro":"passport","Table_type":"BASE TABLE"},{"Tables_in_frro":"personal_details","Table_type":"BASE TABLE"},{"Tables_in_frro":"registration","Table_type":"BASE TABLE"}]
+11-03-2017 12:34:43.0 [INFO] undefined
+11-03-2017 12:34:43.0 [INFO] undefined
+11-03-2017 12:34:43.0 [INFO] undefined
+11-03-2017 12:34:43.0 [INFO] undefined
+11-03-2017 12:34:43.0 [INFO] undefined
+11-03-2017 12:34:43.1 [INFO] undefined
+11-03-2017 12:34:43.1 [INFO] undefined
+11-03-2017 12:34:43.1 [INFO] undefined
+11-03-2017 12:34:43.1 [INFO] undefined
+11-03-2017 12:34:43.1 [INFO] undefined
+11-03-2017 12:34:43.1 [INFO] undefined
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:34:43.1 [ERROR] Error: ER_NO_SUCH_TABLE: Table 'frro.undefined' doesn't exist
+11-03-2017 12:35:30.6 [NOTICE] Success
+11-03-2017 12:35:30.6 [INFO] address
+11-03-2017 12:35:30.6 [INFO] application
+11-03-2017 12:35:30.6 [INFO] arrival
+11-03-2017 12:35:30.6 [INFO] companion
+11-03-2017 12:35:30.6 [INFO] company
+11-03-2017 12:35:30.6 [INFO] document
+11-03-2017 12:35:30.6 [INFO] emergency_contact
+11-03-2017 12:35:30.6 [INFO] file
+11-03-2017 12:35:30.6 [INFO] passport
+11-03-2017 12:35:30.6 [INFO] personal_details
+11-03-2017 12:35:30.6 [INFO] registration
+11-03-2017 12:35:30.6 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 12:35:30.7 [NOTICE] [object Object],[object Object],[object Object],[object Object]
+11-03-2017 12:35:30.6 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.company' doesn't exist in engine
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.address' doesn't exist in engine
+11-03-2017 12:35:30.7 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.passport' doesn't exist in engine
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.document' doesn't exist in engine
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.registration' doesn't exist in engine
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.emergency_contact' doesn't exist in engine
+11-03-2017 12:35:30.7 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.arrival' doesn't exist in engine
+11-03-2017 13:08:20.3 [NOTICE] Success
+11-03-2017 13:08:20.3 [INFO] address
+11-03-2017 13:08:20.3 [INFO] application
+11-03-2017 13:08:20.3 [INFO] arrival
+11-03-2017 13:08:20.3 [INFO] companion
+11-03-2017 13:08:20.3 [INFO] company
+11-03-2017 13:08:20.3 [INFO] document
+11-03-2017 13:08:20.3 [INFO] emergency_contact
+11-03-2017 13:08:20.3 [INFO] file
+11-03-2017 13:08:20.3 [INFO] passport
+11-03-2017 13:08:20.3 [INFO] personal_details
+11-03-2017 13:08:20.3 [INFO] registration
+11-03-2017 13:08:20.4 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.passport' doesn't exist in engine
+11-03-2017 13:08:20.3 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:20.3 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:20.3 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.arrival' doesn't exist in engine
+11-03-2017 13:08:20.4 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.address' doesn't exist in engine
+11-03-2017 13:08:20.4 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:20.4 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.company' doesn't exist in engine
+11-03-2017 13:08:20.4 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.document' doesn't exist in engine
+11-03-2017 13:08:20.4 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.registration' doesn't exist in engine
+11-03-2017 13:08:20.4 [ERROR] Error: ER_STD_LENGTH_ERROR: Table 'frro.emergency_contact' doesn't exist in engine
+11-03-2017 13:08:20.4 [NOTICE] [object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] Success
+11-03-2017 13:08:27.9 [INFO] client
+11-03-2017 13:08:27.9 [INFO] cpe
+11-03-2017 13:08:27.9 [INFO] employe
+11-03-2017 13:08:27.9 [INFO] ist
+11-03-2017 13:08:27.9 [INFO] max_to_delete
+11-03-2017 13:08:27.9 [INFO] running_cpe
+11-03-2017 13:08:27.9 [INFO] service
+11-03-2017 13:08:27.9 [INFO] settings
+11-03-2017 13:08:27.9 [INFO] throughput
+11-03-2017 13:08:27.9 [NOTICE] [object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:08:27.9 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:09:01.0 [NOTICE] Success
+11-03-2017 13:09:01.0 [INFO] client
+11-03-2017 13:09:01.0 [INFO] cpe
+11-03-2017 13:09:01.0 [INFO] employe
+11-03-2017 13:09:01.0 [INFO] ist
+11-03-2017 13:09:01.0 [INFO] max_to_delete
+11-03-2017 13:09:01.0 [INFO] running_cpe
+11-03-2017 13:09:01.0 [INFO] service
+11-03-2017 13:09:01.0 [INFO] settings
+11-03-2017 13:09:01.0 [INFO] throughput
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"dlRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"ulRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"time","Type":"timestamp","Null":"NO","Key":"","Default":"0000-00-00 00:00:00","Extra":""},{"Field":"idcpe","Type":"int(10) unsigned","Null":"NO","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"name","Type":"varchar(45)","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"telephone_fixe","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"telephone_mobile","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"email","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"website","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"address","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"passcode","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_souscription","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_creation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_resiliation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"update_timeout","Type":"int(10) unsigned","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"qte","Type":"bigint(21)","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"name","Type":"varchar(45)","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"vlan","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"mac","Type":"varchar(45)","Null":"NO","Key":"PRI","Default":null,"Extra":""},{"Field":"debit_down","Type":"double","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"debit_up","Type":"double","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"idclient","Type":"int(10) unsigned","Null":"YES","Key":"MUL","Default":null,"Extra":""},{"Field":"date_creation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"debit_type","Type":"varchar(100)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"vlan","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"total_down","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"total_up","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"idtable1","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"idemploye","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"nom","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"prenom","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"telephone","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"email","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"titre","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"service_idtable1","Type":"int(10) unsigned","Null":"NO","Key":"MUL","Default":null,"Extra":""},{"Field":"client_id","Type":"int(10) unsigned","Null":"NO","Key":"MUL","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"del","Type":"decimal(15,0)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:01.0 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"dlRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"ulRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"time","Type":"timestamp","Null":"NO","Key":"","Default":"CURRENT_TIMESTAMP","Extra":""},{"Field":"idcpe","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":""}]
+11-03-2017 13:09:22.9 [NOTICE] Success
+11-03-2017 13:09:22.9 [INFO] client
+11-03-2017 13:09:22.9 [INFO] cpe
+11-03-2017 13:09:22.9 [INFO] employe
+11-03-2017 13:09:22.9 [INFO] ist
+11-03-2017 13:09:22.9 [INFO] max_to_delete
+11-03-2017 13:09:22.9 [INFO] running_cpe
+11-03-2017 13:09:22.9 [INFO] service
+11-03-2017 13:09:22.9 [INFO] settings
+11-03-2017 13:09:22.9 [INFO] throughput
+11-03-2017 13:09:33.8 [NOTICE] Success
+11-03-2017 13:09:33.8 [INFO] client
+11-03-2017 13:09:33.8 [INFO] cpe
+11-03-2017 13:09:33.8 [INFO] employe
+11-03-2017 13:09:33.8 [INFO] ist
+11-03-2017 13:09:33.8 [INFO] max_to_delete
+11-03-2017 13:09:33.8 [INFO] running_cpe
+11-03-2017 13:09:33.8 [INFO] service
+11-03-2017 13:09:33.8 [INFO] settings
+11-03-2017 13:09:33.8 [INFO] throughput
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"dlRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"ulRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"time","Type":"timestamp","Null":"NO","Key":"","Default":"0000-00-00 00:00:00","Extra":""},{"Field":"idcpe","Type":"int(10) unsigned","Null":"NO","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"mac","Type":"varchar(45)","Null":"NO","Key":"PRI","Default":null,"Extra":""},{"Field":"debit_down","Type":"double","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"debit_up","Type":"double","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"idclient","Type":"int(10) unsigned","Null":"YES","Key":"MUL","Default":null,"Extra":""},{"Field":"date_creation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"debit_type","Type":"varchar(100)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"vlan","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"total_down","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"total_up","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"idtable1","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"name","Type":"varchar(45)","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"telephone_fixe","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"telephone_mobile","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"email","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"website","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"address","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"passcode","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_souscription","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_creation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_resiliation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"del","Type":"decimal(15,0)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"dlRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"ulRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"time","Type":"timestamp","Null":"NO","Key":"","Default":"CURRENT_TIMESTAMP","Extra":""},{"Field":"idcpe","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"update_timeout","Type":"int(10) unsigned","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"idemploye","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"nom","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"prenom","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"telephone","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"email","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"titre","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"service_idtable1","Type":"int(10) unsigned","Null":"NO","Key":"MUL","Default":null,"Extra":""},{"Field":"client_id","Type":"int(10) unsigned","Null":"NO","Key":"MUL","Default":null,"Extra":""}]
+11-03-2017 13:09:33.9 [NOTICE] [{"Field":"qte","Type":"bigint(21)","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"name","Type":"varchar(45)","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"vlan","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:09:50.7 [NOTICE] Success
+11-03-2017 13:09:50.7 [INFO] client
+11-03-2017 13:09:50.7 [INFO] cpe
+11-03-2017 13:09:50.7 [INFO] employe
+11-03-2017 13:09:50.7 [INFO] ist
+11-03-2017 13:09:50.7 [INFO] max_to_delete
+11-03-2017 13:09:50.7 [INFO] running_cpe
+11-03-2017 13:09:50.7 [INFO] service
+11-03-2017 13:09:50.7 [INFO] settings
+11-03-2017 13:09:50.7 [INFO] throughput
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:09:50.8 [NOTICE] [{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Field","orgName":"COLUMN_NAME","charsetNr":33,"length":192,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Type","orgName":"COLUMN_TYPE","charsetNr":33,"length":589815,"type":252,"flags":17,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Null","orgName":"IS_NULLABLE","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Key","orgName":"COLUMN_KEY","charsetNr":33,"length":9,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Default","orgName":"COLUMN_DEFAULT","charsetNr":33,"length":589815,"type":252,"flags":16,"decimals":0,"zeroFill":false,"protocol41":true},{"catalog":"def","db":"information_schema","table":"COLUMNS","orgTable":"COLUMNS","name":"Extra","orgName":"EXTRA","charsetNr":33,"length":81,"type":253,"flags":1,"decimals":0,"zeroFill":false,"protocol41":true}]
+11-03-2017 13:10:13.5 [NOTICE] Success
+11-03-2017 13:10:13.5 [INFO] client
+11-03-2017 13:10:13.5 [INFO] cpe
+11-03-2017 13:10:13.5 [INFO] employe
+11-03-2017 13:10:13.5 [INFO] ist
+11-03-2017 13:10:13.5 [INFO] max_to_delete
+11-03-2017 13:10:13.5 [INFO] running_cpe
+11-03-2017 13:10:13.5 [INFO] service
+11-03-2017 13:10:13.5 [INFO] settings
+11-03-2017 13:10:13.5 [INFO] throughput
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"dlRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"ulRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"time","Type":"timestamp","Null":"NO","Key":"","Default":"0000-00-00 00:00:00","Extra":""},{"Field":"idcpe","Type":"int(10) unsigned","Null":"NO","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:10:13.5 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"name","Type":"varchar(45)","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"telephone_fixe","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"telephone_mobile","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"email","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"website","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"address","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"passcode","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_souscription","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_creation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"date_resiliation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:10:13.5 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"mac","Type":"varchar(45)","Null":"NO","Key":"PRI","Default":null,"Extra":""},{"Field":"debit_down","Type":"double","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"debit_up","Type":"double","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"idclient","Type":"int(10) unsigned","Null":"YES","Key":"MUL","Default":null,"Extra":""},{"Field":"date_creation","Type":"datetime","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"debit_type","Type":"varchar(100)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"vlan","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"total_down","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"total_up","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"idemploye","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"nom","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"prenom","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"telephone","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"email","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"titre","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"service_idtable1","Type":"int(10) unsigned","Null":"NO","Key":"MUL","Default":null,"Extra":""},{"Field":"client_id","Type":"int(10) unsigned","Null":"NO","Key":"MUL","Default":null,"Extra":""}]
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"dlRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"ulRate","Type":"double","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"time","Type":"timestamp","Null":"NO","Key":"","Default":"CURRENT_TIMESTAMP","Extra":""},{"Field":"idcpe","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":""}]
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"update_timeout","Type":"int(10) unsigned","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"del","Type":"decimal(15,0)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"idtable1","Type":"int(10) unsigned","Null":"NO","Key":"PRI","Default":null,"Extra":"auto_increment"},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:10:13.6 [NOTICE] [{"Field":"qte","Type":"bigint(21)","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"name","Type":"varchar(45)","Null":"NO","Key":"","Default":null,"Extra":""},{"Field":"label","Type":"varchar(45)","Null":"YES","Key":"","Default":null,"Extra":""},{"Field":"id","Type":"int(10) unsigned","Null":"NO","Key":"","Default":"0","Extra":""},{"Field":"vlan","Type":"int(11)","Null":"YES","Key":"","Default":null,"Extra":""}]
+11-03-2017 13:12:38.8 [NOTICE] Success
+11-03-2017 13:12:38.8 [INFO] client
+11-03-2017 13:12:38.8 [INFO] cpe
+11-03-2017 13:12:38.8 [INFO] employe
+11-03-2017 13:12:38.8 [INFO] ist
+11-03-2017 13:12:38.8 [INFO] max_to_delete
+11-03-2017 13:12:38.8 [INFO] running_cpe
+11-03-2017 13:12:38.8 [INFO] service
+11-03-2017 13:12:38.8 [INFO] settings
+11-03-2017 13:12:38.8 [INFO] throughput
+11-03-2017 13:12:38.8 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "label",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "mac",
+    "Type": "varchar(45)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "debit_down",
+    "Type": "double",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "debit_up",
+    "Type": "double",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "idclient",
+    "Type": "int(10) unsigned",
+    "Null": "YES",
+    "Key": "MUL",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_creation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "debit_type",
+    "Type": "varchar(100)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "vlan",
+    "Type": "int(11)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "total_down",
+    "Type": "int(11)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "total_up",
+    "Type": "int(11)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.8 [NOTICE] [
+  {
+    "Field": "idemploye",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "nom",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "prenom",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "email",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "titre",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "service_idtable1",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "MUL",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "client_id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "MUL",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "qte",
+    "Type": "bigint(21)",
+    "Null": "NO",
+    "Key": "",
+    "Default": "0",
+    "Extra": ""
+  },
+  {
+    "Field": "name",
+    "Type": "varchar(45)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "label",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "",
+    "Default": "0",
+    "Extra": ""
+  },
+  {
+    "Field": "vlan",
+    "Type": "int(11)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "idtable1",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "label",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "dlRate",
+    "Type": "double",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "ulRate",
+    "Type": "double",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "time",
+    "Type": "timestamp",
+    "Null": "NO",
+    "Key": "",
+    "Default": "CURRENT_TIMESTAMP",
+    "Extra": ""
+  },
+  {
+    "Field": "idcpe",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "update_timeout",
+    "Type": "int(10) unsigned",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "del",
+    "Type": "decimal(15,0)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "name",
+    "Type": "varchar(45)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_fixe",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_mobile",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "email",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "website",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "address",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "passcode",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_souscription",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_creation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_resiliation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:12:38.9 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "",
+    "Default": "0",
+    "Extra": ""
+  },
+  {
+    "Field": "dlRate",
+    "Type": "double",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "ulRate",
+    "Type": "double",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "time",
+    "Type": "timestamp",
+    "Null": "NO",
+    "Key": "",
+    "Default": "0000-00-00 00:00:00",
+    "Extra": ""
+  },
+  {
+    "Field": "idcpe",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:13:33.0 [NOTICE] Success
+11-03-2017 13:13:33.0 [INFO] client
+11-03-2017 13:13:33.0 [INFO] cpe
+11-03-2017 13:13:33.0 [INFO] employe
+11-03-2017 13:13:33.0 [INFO] ist
+11-03-2017 13:13:33.0 [INFO] max_to_delete
+11-03-2017 13:13:33.0 [INFO] running_cpe
+11-03-2017 13:13:33.0 [INFO] service
+11-03-2017 13:13:33.0 [INFO] settings
+11-03-2017 13:13:33.0 [INFO] throughput
+11-03-2017 13:13:33.1 [NOTICE] [object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:13:33.1 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:15:59.4 [NOTICE] Success
+11-03-2017 13:15:59.5 [INFO] client
+11-03-2017 13:15:59.5 [NOTICE] [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+11-03-2017 13:16:22.5 [NOTICE] Success
+11-03-2017 13:16:22.5 [INFO] client
+11-03-2017 13:16:22.5 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "name",
+    "Type": "varchar(45)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_fixe",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_mobile",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "email",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "website",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "address",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "passcode",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_souscription",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_creation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_resiliation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:17:23.5 [NOTICE] Success
+11-03-2017 13:17:23.5 [INFO] client
+11-03-2017 13:17:23.5 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "name",
+    "Type": "varchar(45)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_fixe",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_mobile",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "email",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "website",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "address",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "passcode",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_souscription",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_creation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_resiliation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:23:25.0 [NOTICE] Success
+11-03-2017 13:23:25.0 [INFO] client
+11-03-2017 13:23:25.1 [NOTICE] [
+  {
+    "Field": "id",
+    "Type": "int(10) unsigned",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment"
+  },
+  {
+    "Field": "name",
+    "Type": "varchar(45)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_fixe",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "telephone_mobile",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "email",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "website",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "address",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "passcode",
+    "Type": "varchar(45)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_souscription",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_creation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  },
+  {
+    "Field": "date_resiliation",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+  }
+]
+11-03-2017 13:23:44.9 [NOTICE] Success
+11-03-2017 13:23:44.9 [INFO] client
+11-03-2017 13:23:44.9 [NOTICE] [
+    {
+        "Field": "id",
+        "Type": "int(10) unsigned",
+        "Null": "NO",
+        "Key": "PRI",
+        "Default": null,
+        "Extra": "auto_increment"
+    },
+    {
+        "Field": "name",
+        "Type": "varchar(45)",
+        "Null": "NO",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "telephone_fixe",
+        "Type": "varchar(45)",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "telephone_mobile",
+        "Type": "varchar(45)",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "email",
+        "Type": "varchar(45)",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "website",
+        "Type": "varchar(45)",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "address",
+        "Type": "varchar(45)",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "passcode",
+        "Type": "varchar(45)",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "date_souscription",
+        "Type": "datetime",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "date_creation",
+        "Type": "datetime",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    },
+    {
+        "Field": "date_resiliation",
+        "Type": "datetime",
+        "Null": "YES",
+        "Key": "",
+        "Default": null,
+        "Extra": ""
+    }
+]
+11-03-2017 13:23:52.4 [NOTICE] Success
+11-03-2017 13:23:52.4 [INFO] client
+11-03-2017 13:23:52.4 [NOTICE] [
+   {
+      "Field": "id",
+      "Type": "int(10) unsigned",
+      "Null": "NO",
+      "Key": "PRI",
+      "Default": null,
+      "Extra": "auto_increment"
+   },
+   {
+      "Field": "name",
+      "Type": "varchar(45)",
+      "Null": "NO",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "telephone_fixe",
+      "Type": "varchar(45)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "telephone_mobile",
+      "Type": "varchar(45)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "email",
+      "Type": "varchar(45)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "website",
+      "Type": "varchar(45)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "address",
+      "Type": "varchar(45)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "passcode",
+      "Type": "varchar(45)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "date_souscription",
+      "Type": "datetime",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "date_creation",
+      "Type": "datetime",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   },
+   {
+      "Field": "date_resiliation",
+      "Type": "datetime",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+   }
+]
