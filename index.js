@@ -39,24 +39,25 @@ function parseDir(dir) {
             if( fs.lstatSync(filePath).isDirectory() ) {
                 log.debug(filePath);
                 parseDir(filePath);    
+
+                
             }
             else {
                 var fileInfo= path.parse(filePath);
                 log.warning(filePath);
-                if(fileInfo.name =='tmpl') {
+                var fileName= path.parse(fileInfo.name).name // extracting the real name of the file, without  .cru extension.
+                var fileExt= path.parse(fileInfo.name).ext   // extracting the real extension of the file, without the .cru extension.
+                if( fileName=='model') {
 
                     CRUDit.multiplyFile(filePath, models, function (code, model) {
-                        var outFilePath= path.join(fileInfo.dir,model.name+fileInfo.ext);
-                        fs.writeFile(outFilePath,code,'utf-8')
+                        var outFilePath= path.join(fileInfo.dir,model.name+fileExt);
+                        fs.writeFile(outFilePath,code,'utf-8');
                     });
                 }
-                else {
+                else if(fileInfo.ext=='.cru') {
                     CRUDit.parseFile(filePath, models, function (code) {
-                        var outFilePath= path.join(fileInfo.dir,fileInfo.name+fileInfo.ext+'.it');
-                        log.critical(filePath);
-                        log.critical(outFilePath);
-                        fs.renameSync(filePath,outFilePath); // renaming the template file to avoid overwriting it
-                        fs.writeFile(filePath,code,'utf-8');
+                        var outFilePath= path.join(fileInfo.dir,fileName+fileExt);
+                        fs.writeFile(outFilePath,code,'utf-8');
                     });
                 }
             }

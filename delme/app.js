@@ -1,6 +1,4 @@
 
-
-
 angular.module("!<app-name>!", ['faye','ui.router','ngBootbox',])
 
    .config( function($stateProvider, $urlRouterProvider) {
@@ -17,10 +15,8 @@ angular.module("!<app-name>!", ['faye','ui.router','ngBootbox',])
                 controller: "!<model>!Controller",
             })
         <!!
-            
             ;
             $urlRouterProvider.otherwise('/');
-
         })
         
         /*

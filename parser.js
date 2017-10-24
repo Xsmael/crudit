@@ -48,12 +48,12 @@ function applyModel(str, model) {
 
 function multiplyCode(token, models) {
     var codeParts= token[1];
-    console.log(codeParts);
+    // console.log(codeParts);
     var code="";
     models.forEach(function (model) {
         code+= applyModel(codeParts,model);
     });
-    console.log(code);
+    // console.log(code);
     return code;
     
 }
