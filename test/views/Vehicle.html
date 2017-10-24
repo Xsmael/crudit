@@ -1,0 +1,51 @@
+<div class="row">
+    <button class="btn btn-primary"
+        ng-bootbox-title="<i class='fa fa-bus' ></i> Nouveau Bus "
+        ng-bootbox-custom-dialog
+        ng-bootbox-custom-dialog-template="./templates/modal/add-vehicle.html"
+        ng-bootbox-buttons="customDialogButtons">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Nouveau  Vehicle
+    </button>
+
+</div>
+
+<div class="row">
+
+    <table class="table table-striped table-condensed -table-hover">
+        <thead>
+            <tr>
+                <th> S.no</th>
+                 <td>{{brand}}</td> 
+ <td>{{model}}</td> 
+ <td>{{type}}</td> 
+ <td>{{seats}}</td> 
+ <td>{{number_plate}}</td> 
+
+                <th>
+                    <button type="button" class="btn btn-warning" ng-click="clearAll()">Boooo</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active" ng-repeat="Vehicle">
+                <td>{{$index+1}}</td>
+                 <td>{{Vehicle.brand}}</td> 
+ <td>{{Vehicle.model}}</td> 
+ <td>{{Vehicle.type}}</td> 
+ <td>{{Vehicle.seats}}</td> 
+ <td>{{Vehicle.number_plate}}</td> 
+
+                <td>
+                    <button type="button" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> edit
+                            </button>
+
+                    <button type="button" class="btn btn-danger" ng-click="delete(Vehicle)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> delete
+                            </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

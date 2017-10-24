@@ -5,7 +5,7 @@
         ng-bootbox-custom-dialog-template="./templates/modal/add-vehicle.html"
         ng-bootbox-buttons="customDialogButtons">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        Nouveau  User
+        Nouveau Bus
     </button>
 
 </div>
@@ -15,33 +15,24 @@
     <table class="table table-striped table-condensed -table-hover">
         <thead>
             <tr>
-                <th> S.no</th>
-                 <td>{{name}}</td> 
-                <td>{{age}}</td> 
-                <td>{{phone}}</td> 
-                <td>{{email}}</td> 
-                <td>{{address}}</td> 
 
+                <th> S.no</th>
+                ! <td>{{<fieldlist>}}</td> !
                 <th>
                     <button type="button" class="btn btn-warning" ng-click="clearAll()">Boooo</button>
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr class="active" ng-repeat="Users">
+            <tr class="active" ng-repeat="!<model>! in !<models>!">
                 <td>{{$index+1}}</td>
-                 <td>{{User.name}}</td> 
- <td>{{User.age}}</td> 
- <td>{{User.phone}}</td> 
- <td>{{User.email}}</td> 
- <td>{{User.address}}</td> 
-
+                ! <td>{{<proplist>}}</td> !
                 <td>
                     <button type="button" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> edit
                             </button>
 
-                    <button type="button" class="btn btn-danger" ng-click="delete(User)">
+                    <button type="button" class="btn btn-danger" ng-click="delete(!<model>!)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> delete
                             </button>
                 </td>

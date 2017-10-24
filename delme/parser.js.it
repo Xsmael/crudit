@@ -33,6 +33,8 @@ function multiplyFile(file, models, callb) {
             code= applyModel(str, model);
             if(typeof callb === 'function') callb(code, model);
         });
+        // return code;
+
     });
 }
 

@@ -139,5 +139,8 @@ angular.module("!<app-name>!", ['faye','ui.router','ngBootbox',])
     
     FayeFactory.publish('/list-req/Vehicle', {});
     console.warn("VehicleController");
-})
+});
+
+
+
 

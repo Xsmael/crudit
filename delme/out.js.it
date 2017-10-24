@@ -12,14 +12,14 @@ angular.module("!<app-name>!", ['faye','ui.router','ngBootbox',])
         })
         
         
-            .state('User', {
-                url: '/User',
-                controller: "UserController",
+            .state('user', {
+                url: '/user',
+                controller: "userController",
             })
         
-            .state('Account', {
-                url: '/Account',
-                controller: "AccountController",
+            .state('account', {
+                url: '/account',
+                controller: "accountController",
             })
         
             .state('Vehicle', {
@@ -75,48 +75,48 @@ angular.module("!<app-name>!", ['faye','ui.router','ngBootbox',])
     })
     
 
-.controller("UserController",function($scope, $rootScope, FayeFactory){
-    $scope.Users= [];
+.controller("userController",function($scope, $rootScope, FayeFactory){
+    $scope.users= [];
 
     $scope.create= function(o) {
-        FayeFactory.publish('/create/User', o);    
+        FayeFactory.publish('/create/user', o);    
     }
     $scope.update= function(o) {
-        FayeFactory.publish('/update/User', o);        
+        FayeFactory.publish('/update/user', o);        
     }
     $scope.delete= function(o) {
-        FayeFactory.publish('/delete/User', o);        
+        FayeFactory.publish('/delete/user', o);        
     }
 
-    FayeFactory.subscribe('/list/User', function(objs) {
+    FayeFactory.subscribe('/list/user', function(objs) {
         $scope.vehicles= objs;
         console.log(objs);
     });
     
-    FayeFactory.publish('/list-req/User', {});
-    console.warn("UserController");
+    FayeFactory.publish('/list-req/user', {});
+    console.warn("userController");
 })
 
-.controller("AccountController",function($scope, $rootScope, FayeFactory){
-    $scope.Account= [];
+.controller("accountController",function($scope, $rootScope, FayeFactory){
+    $scope.account= [];
 
     $scope.create= function(o) {
-        FayeFactory.publish('/create/Account', o);    
+        FayeFactory.publish('/create/account', o);    
     }
     $scope.update= function(o) {
-        FayeFactory.publish('/update/Account', o);        
+        FayeFactory.publish('/update/account', o);        
     }
     $scope.delete= function(o) {
-        FayeFactory.publish('/delete/Account', o);        
+        FayeFactory.publish('/delete/account', o);        
     }
 
-    FayeFactory.subscribe('/list/Account', function(objs) {
+    FayeFactory.subscribe('/list/account', function(objs) {
         $scope.vehicles= objs;
         console.log(objs);
     });
     
-    FayeFactory.publish('/list-req/Account', {});
-    console.warn("AccountController");
+    FayeFactory.publish('/list-req/account', {});
+    console.warn("accountController");
 })
 
 .controller("VehicleController",function($scope, $rootScope, FayeFactory){
