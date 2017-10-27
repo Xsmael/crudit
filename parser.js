@@ -4,7 +4,7 @@ var log= require('noogger');
 // var modelRE= /\!([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?<([a-zA-Z0-9]+)>([a-zA-Z0-9_ $&+,:;=?@#{}|'<>.^*()%/-]+)?\!/g;
 var modelRE= /\!(.*)<([a-zA-Z0-9]+)>(.*)\!/g;
 var multiplyRE= /\!\!>multiply([^]+?)<\!\!/g;
-
+var GLOBALS= {};
 var GET= {
     PREFIX: 1, KEY:2, SUFFIX: 3 
 }
@@ -36,15 +36,6 @@ function multiplyFile(file, models, callb) {
     });
 }
 
-function applyModel(str, model) {
-    var outputString = str;    
-    while( token= modelRE.exec(str) ) {
-        // console.log(token[1]);
-        var code= generateCode(token, model);
-        outputString= outputString.replace(token[0],code);        
-    }
-    return outputString;    
-}
 
 function multiplyCode(token, models) {
     var codeParts= token[1];
@@ -56,6 +47,15 @@ function multiplyCode(token, models) {
     // console.log(code);
     return code;
     
+}
+function applyModel(str, model) {
+    var outputString = str;    
+    while( token= modelRE.exec(str) ) {
+        // console.log(token[1]);
+        var code= generateCode(token, model);
+        outputString= outputString.replace(token[0],code);        
+    }
+    return outputString;    
 }
 
 function generateCode(token, model) {
@@ -84,14 +84,22 @@ function generateCode(token, model) {
             break;
             
         default:
-            console.log('Unhandled  keyword: '+ keyword);
-            console.log(token);
+            if(GLOBALS[keyword]) {
+                log.notice('glabal var: '+ keyword);
+                return GLOBALS[keyword];
+            }            
+            else    log.critical('Unhandled  keyword: '+ keyword);
             break;
     }
 }
 
+function setGlobals(globalVar) {
+    GLOBALS= globalVar;
+}
+
 exports.parseFile=  parseFile;
 exports.multiplyFile= multiplyFile;
+exports.setGlobals= setGlobals;
  
 /**
  Keywords:

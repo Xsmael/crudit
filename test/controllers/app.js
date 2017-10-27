@@ -1,5 +1,5 @@
 
-angular.module("!<app-name>!", ['faye','ui.router','ngBootbox',])
+angular.module("!<appname>!", ['faye','ui.router','ngBootbox',])
 
    .config( function($stateProvider, $urlRouterProvider) {
        $stateProvider

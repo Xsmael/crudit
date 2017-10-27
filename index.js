@@ -5,6 +5,12 @@ var CRUDit= require('./parser.js');
 var projectTemplatePath= './test'
 var outputDir='./result';
 
+
+var globals= {
+    "appname": "BussYWellY",
+    "FAYE_PORT": "8888"
+};
+CRUDit.setGlobals(globals);
 var models= [
     { 
         name:'User',
@@ -45,12 +51,12 @@ function parseDir(dir) {
             else {
                 var fileInfo= path.parse(filePath);
                 log.warning(filePath);
-                var fileName= path.parse(fileInfo.name).name // extracting the real name of the file, without  .cru extension.
-                var fileExt= path.parse(fileInfo.name).ext   // extracting the real extension of the file, without the .cru extension.
-                if( fileName=='model') {
-
+                var fileName= path.parse(fileInfo.name).name // extracting the real name of the file, without the trailing extension.
+                var fileExt= path.parse(fileInfo.name).ext   // extracting the real extension of the file, omitting the .cru extension.
+                if( fileName.indexOf('model') !=-1 ) {
+                    var newFile=  fileName.replace('model',model.name) +fileExt;
                     CRUDit.multiplyFile(filePath, models, function (code, model) {
-                        var outFilePath= path.join(fileInfo.dir,model.name+fileExt);
+                        var outFilePath= path.join(fileInfo.dir,newFile);
                         fs.writeFile(outFilePath,code,'utf-8');
                     });
                 }

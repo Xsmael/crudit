@@ -1,6 +1,6 @@
 {
-  "name": "crudshow",
-  "version": "1.0.0",
+  "name": "crudit",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.13.0",
     "noogger": "^0.1.6"
   }
 }
