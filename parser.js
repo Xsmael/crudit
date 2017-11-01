@@ -64,6 +64,10 @@ function generateCode(token, model) {
         case 'model':
             return model.name;
             break;
+        case 'Model':
+            var name= model.name;
+            return  name[0].toUpperCase()+ name.slice(1, name.length-1);
+            break;
         case 'models': case 'smodel':
             return model.sname;
             break;

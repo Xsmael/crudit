@@ -10,19 +10,19 @@ angular.module("!<appname>!", ['faye','ui.router','ngBootbox',])
         })
         
         
-            .state('User', {
-                url: '/User',
-                controller: "UserController",
+            .state('Ticket', {
+                url: '/Ticket',
+                controller: "TicketController",
             })
         
-            .state('Account', {
-                url: '/Account',
-                controller: "AccountController",
+            .state('Parcel', {
+                url: '/Parcel',
+                controller: "ParcelController",
             })
         
-            .state('Vehicle', {
-                url: '/Vehicle',
-                controller: "VehicleController",
+            .state('Trip', {
+                url: '/Trip',
+                controller: "TripController",
             })
         
             ;
@@ -71,69 +71,69 @@ angular.module("!<appname>!", ['faye','ui.router','ngBootbox',])
     })
     
 
-.controller("UserController",function($scope, $rootScope, FayeFactory){
-    $scope.Users= [];
+.controller("TicketController",function($scope, $rootScope, FayeFactory){
+    $scope.Tickets= [];
 
     $scope.create= function(o) {
-        FayeFactory.publish('/create/User', o);    
+        FayeFactory.publish('/create/Ticket', o);    
     }
     $scope.update= function(o) {
-        FayeFactory.publish('/update/User', o);        
+        FayeFactory.publish('/update/Ticket', o);        
     }
     $scope.delete= function(o) {
-        FayeFactory.publish('/delete/User', o);        
+        FayeFactory.publish('/delete/Ticket', o);        
     }
 
-    FayeFactory.subscribe('/list/User', function(objs) {
+    FayeFactory.subscribe('/list/Ticket', function(objs) {
         $scope.vehicles= objs;
         console.log(objs);
     });
     
-    FayeFactory.publish('/list-req/User', {});
-    console.warn("UserController");
+    FayeFactory.publish('/list-req/Ticket', {});
+    console.warn("TicketController");
 })
 
-.controller("AccountController",function($scope, $rootScope, FayeFactory){
-    $scope.Account= [];
+.controller("ParcelController",function($scope, $rootScope, FayeFactory){
+    $scope.Parcels= [];
 
     $scope.create= function(o) {
-        FayeFactory.publish('/create/Account', o);    
+        FayeFactory.publish('/create/Parcel', o);    
     }
     $scope.update= function(o) {
-        FayeFactory.publish('/update/Account', o);        
+        FayeFactory.publish('/update/Parcel', o);        
     }
     $scope.delete= function(o) {
-        FayeFactory.publish('/delete/Account', o);        
+        FayeFactory.publish('/delete/Parcel', o);        
     }
 
-    FayeFactory.subscribe('/list/Account', function(objs) {
+    FayeFactory.subscribe('/list/Parcel', function(objs) {
         $scope.vehicles= objs;
         console.log(objs);
     });
     
-    FayeFactory.publish('/list-req/Account', {});
-    console.warn("AccountController");
+    FayeFactory.publish('/list-req/Parcel', {});
+    console.warn("ParcelController");
 })
 
-.controller("VehicleController",function($scope, $rootScope, FayeFactory){
-    $scope.Vehicle= [];
+.controller("TripController",function($scope, $rootScope, FayeFactory){
+    $scope.Trips= [];
 
     $scope.create= function(o) {
-        FayeFactory.publish('/create/Vehicle', o);    
+        FayeFactory.publish('/create/Trip', o);    
     }
     $scope.update= function(o) {
-        FayeFactory.publish('/update/Vehicle', o);        
+        FayeFactory.publish('/update/Trip', o);        
     }
     $scope.delete= function(o) {
-        FayeFactory.publish('/delete/Vehicle', o);        
+        FayeFactory.publish('/delete/Trip', o);        
     }
 
-    FayeFactory.subscribe('/list/Vehicle', function(objs) {
+    FayeFactory.subscribe('/list/Trip', function(objs) {
         $scope.vehicles= objs;
         console.log(objs);
     });
     
-    FayeFactory.publish('/list-req/Vehicle', {});
-    console.warn("VehicleController");
+    FayeFactory.publish('/list-req/Trip', {});
+    console.warn("TripController");
 })
 

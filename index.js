@@ -13,21 +13,21 @@ var globals= {
 CRUDit.setGlobals(globals);
 var models= [
     { 
-        name:'User',
-        sname:'Users',
+        name:'Ticket',
+        sname:'Tickets',
         fields: ['name','age', 'phone', 'email','address']
     },
     { 
-        name:'Account',
-        sname:'Account',
-        fields: ['date_openning','capacity', 'branch', 'owner','last_connected']
+        name:'Parcel',
+        sname:'Parcels',
+        fields: ['name','age', 'phone', 'email','address']
     },
-    { 
-        name:'Vehicle',
-        sname:'Vehicle',
-        fields: ['brand','model', 'type', 'seats','number_plate']
+    {
+        name:'Trip',
+        sname:'Trips',
+        fields: ['name','age', 'phone', 'email','address']
     }
-];
+]
 
 
 
@@ -44,9 +44,7 @@ function parseDir(dir) {
             var filePath= path.join(dir, file);
             if( fs.lstatSync(filePath).isDirectory() ) {
                 log.debug(filePath);
-                parseDir(filePath);    
-
-                
+                parseDir(filePath);                    
             }
             else {
                 var fileInfo= path.parse(filePath);
@@ -54,8 +52,8 @@ function parseDir(dir) {
                 var fileName= path.parse(fileInfo.name).name // extracting the real name of the file, without the trailing extension.
                 var fileExt= path.parse(fileInfo.name).ext   // extracting the real extension of the file, omitting the .cru extension.
                 if( fileName.indexOf('model') !=-1 ) {
-                    var newFile=  fileName.replace('model',model.name) +fileExt;
                     CRUDit.multiplyFile(filePath, models, function (code, model) {
+                        var newFile=  fileName.replace('model',model.name) +fileExt;
                         var outFilePath= path.join(fileInfo.dir,newFile);
                         fs.writeFile(outFilePath,code,'utf-8');
                     });
